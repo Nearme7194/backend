@@ -26,6 +26,7 @@ return new class extends Migration
             $table->foreign('tehasils_id')->references('id')->on('districts')
                                         ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
