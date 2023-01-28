@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
             $table->longText('body')->unique();
+            $table->string('pincode');
             $table->unsignedInteger('state_id')->default(0);
             $table->foreign('state_id')->references('id')->on('states')
                                         ->onDelete('cascade')->onUpdate('cascade');

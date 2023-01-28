@@ -17,7 +17,10 @@ class LocationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'latitude' => fake()->numerify('### ####'),
+            'longitude' => fake()->numerify('### ####'),
+            'zoom_level' => fake()->numberBetween(1,20) 
         ];
     }
 }
+
