@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Categories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class SubCategoriesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->name(),
+            'category_id' => function (){
+                return Categories::factory()->create()->id;
+            }
         ];
     }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('contact_number');
-            $table->boolean('opne_24');
+            $table->boolean('open_24');
             $table->string('open_time');
             $table->string('close_time');
             $table->string('visit_count');
