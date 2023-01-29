@@ -6,6 +6,7 @@ use App\Http\Controllers\MediumController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\StateController;
+use App\Http\Controllers\SubCategoriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -57,3 +58,8 @@ Route::get('deleted-states-list', [StateController::class, 'deletedStateList']);
 Route::resource('locations', LocationController::class);
 Route::get('/locations/{locationId}/restore', [LocationController::class, 'restore']);
 Route::get('deleted-location-list', [LocationController::class, 'deletedLocationList']);
+
+// Route for SubCategories
+Route::resource('subcategories', SubCategoriesController::class);
+Route::get('/subcategories/{subCategoryId}/restore', [SubCategoriesController::class, 'restore']);
+Route::get('deleted-subcategories-list', [SubCategoriesController::class, 'deletedSubCategoriesList']);
