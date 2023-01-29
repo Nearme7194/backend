@@ -24,21 +24,21 @@ class MediumController extends Controller
 
         return response()->json(
             [
-                "message" => "Prodcut Created Successfully",
+                "message" => "Medium Created Successfully",
                 "success" => true
             ],
             201
         );
     }
 
-    public function show(int $productId)
+    public function show(int $mediumId)
     {
-        $product = Medium::find($productId);
+        $medium = Medium::find($mediumId);
 
-        if ($product) {
+        if ($medium) {
             return response()->json(
                 [
-                    "Medium_data" => $product,
+                    "data" => $medium,
                     "success" => true
                 ],
                 200
@@ -54,12 +54,12 @@ class MediumController extends Controller
         );
     }
 
-    public function update(MediumUpdateRequest $request, $productId)
+    public function update(MediumUpdateRequest $request, $mediumId)
     {
-        $product = Medium::find($productId);
+        $medium = Medium::find($mediumId);
 
-        if ($product) {
-            $product->update($this->setParams($request));
+        if ($medium) {
+            $medium->update($this->setParams($request));
 
             return response()->json(
                 [
@@ -79,12 +79,12 @@ class MediumController extends Controller
         );
     }
 
-    public function destroy(int $productId)
+    public function destroy(int $mediumId)
     {
-        $product = Medium::find($productId);
+        $medium = Medium::find($mediumId);
 
-        if ($product) {
-            $product->delete($productId);
+        if ($medium) {
+            $medium->delete($mediumId);
 
             return response()->json(
                 [
@@ -105,13 +105,13 @@ class MediumController extends Controller
 
     }
 
-    public function restore(int $productId)
+    public function restore(int $mediumId)
     {
-        $product = Medium::onlyTrashed()->find($productId);
+        $medium = Medium::onlyTrashed()->find($mediumId);
 
-        if ($product) {
+        if ($medium) {
 
-            $product->restore();
+            $medium->restore();
 
             return response()->json(
                 [

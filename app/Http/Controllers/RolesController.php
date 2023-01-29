@@ -24,21 +24,21 @@ class RolesController extends Controller
 
         return response()->json(
             [
-                "message" => "Prodcut Created Successfully",
+                "message" => "Role Created Successfully",
                 "success" => true
             ],
             201
         );
     }
 
-    public function show(int $productId)
+    public function show(int $roleId)
     {
-        $product = Roles::find($productId);
+        $role = Roles::find($roleId);
 
-        if ($product) {
+        if ($role) {
             return response()->json(
                 [
-                    "Medium_data" => $product,
+                    "data" => $role,
                     "success" => true
                 ],
                 200
@@ -47,23 +47,23 @@ class RolesController extends Controller
 
         return response()->json(
             [
-                "message" => "Medium Not Found",
+                "message" => "Role Not Found",
                 "success" => false
             ],
             200
         );
     }
 
-    public function update(RoleUpdateRequest $request, $productId)
+    public function update(RoleUpdateRequest $request, $roleId)
     {
-        $product = Roles::find($productId);
+        $role = Roles::find($roleId);
 
-        if ($product) {
-            $product->update($this->setParams($request));
+        if ($role) {
+            $role->update($this->setParams($request));
 
             return response()->json(
                 [
-                    "message" => "Medium Update Successfully",
+                    "message" => "Role Update Successfully",
                     "success" => true
                 ],
                 201
@@ -72,23 +72,23 @@ class RolesController extends Controller
 
         return response()->json(
             [
-                "message" => "Medium Not Found",
+                "message" => "Role Not Found",
                 "success" => false
             ],
             404
         );
     }
 
-    public function destroy(int $productId)
+    public function destroy(int $roleId)
     {
-        $product = Roles::find($productId);
+        $role = Roles::find($roleId);
 
-        if ($product) {
-            $product->delete($productId);
+        if ($role) {
+            $role->delete($roleId);
 
             return response()->json(
                 [
-                    "message" => "Medium Delete Successfully",
+                    "message" => "Role Delete Successfully",
                     "success" => true
                 ],
                 201
@@ -97,7 +97,7 @@ class RolesController extends Controller
 
         return response()->json(
             [
-                "message" => "Medium Not Found",
+                "message" => "Role Not Found",
                 "success" => false
             ],
             404
@@ -105,17 +105,17 @@ class RolesController extends Controller
 
     }
 
-    public function restore(int $productId)
+    public function restore(int $roleId)
     {
-        $product = Roles::onlyTrashed()->find($productId);
+        $role = Roles::onlyTrashed()->find($roleId);
 
-        if ($product) {
+        if ($role) {
 
-            $product->restore();
+            $role->restore();
 
             return response()->json(
                 [
-                    "message" => "Medium Restore Successfully",
+                    "message" => "Role Restore Successfully",
                     "success" => true
                 ],
                 201
@@ -124,7 +124,7 @@ class RolesController extends Controller
 
         return response()->json(
             [
-                "message" => "Medium Not Found",
+                "message" => "Role Not Found",
                 "success" => false
             ],
             404

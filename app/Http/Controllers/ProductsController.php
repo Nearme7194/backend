@@ -24,7 +24,7 @@ class ProductsController extends Controller
 
         return response()->json(
             [
-                "message" => "Prodcut Created Successfully",
+                "message" => "Product Created Successfully",
                 "success" => true
             ],
             201
@@ -38,7 +38,7 @@ class ProductsController extends Controller
         if ($product) {
             return response()->json(
                 [
-                    "product_data" => $product,
+                    "data" => $product,
                     "success" => true
                 ],
                 200
