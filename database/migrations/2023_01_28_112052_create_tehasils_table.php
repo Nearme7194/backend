@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('district_id')->references('id')->on('districts')
                                         ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

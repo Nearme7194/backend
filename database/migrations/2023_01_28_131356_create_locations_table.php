@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('longitude');
             $table->string('zoom_level');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

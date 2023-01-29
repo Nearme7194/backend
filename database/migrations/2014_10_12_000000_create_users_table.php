@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('register_by');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
