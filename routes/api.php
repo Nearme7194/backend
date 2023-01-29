@@ -24,3 +24,5 @@ Route::get('test',function(){
 });
 
 Route::resource('products',ProductsController::class);
+Route::get('/products/{productId}/restore',[ProductsController::class,'restore']);
+Route::get('deleted-prodcuts-list',[ProductsController::class,'deletedProductList']);
