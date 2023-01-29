@@ -17,6 +17,5 @@ class CreateProductRequest extends FormRequest
         return [
             'name' => 'required|string|min:3|max:15|unique:products'
         ];
-        // dd('hello');
     }
 }
