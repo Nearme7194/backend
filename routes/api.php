@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MediumController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RolesController;
@@ -51,3 +52,8 @@ Route::get('deleted-categories-list', [CategoriesController::class, 'deletedCate
 Route::resource('states', StateController::class);
 Route::get('/states/{stateId}/restore', [StateController::class, 'restore']);
 Route::get('deleted-states-list', [StateController::class, 'deletedStateList']);
+
+// Route for locations
+Route::resource('locations', LocationController::class);
+Route::get('/locations/{locationId}/restore', [LocationController::class, 'restore']);
+Route::get('deleted-location-list', [LocationController::class, 'deletedLocationList']);
