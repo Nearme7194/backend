@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class District extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $guarded = ['id'];
 }
