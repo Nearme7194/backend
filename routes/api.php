@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\LocationController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\SubCategoriesController;
-use App\Models\District;
+use App\Http\Controllers\TehasilController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -70,3 +71,13 @@ Route::get('deleted-subcategories-list', [SubCategoriesController::class, 'delet
 Route::resource('districts', DistrictController::class);
 Route::get('districts/{districtId}/restore', [DistrictController::class, 'restore']);
 Route::get('deleted-districts-list', [DistrictController::class, 'deletedDistrictsList']);
+
+// Route for Tehasil
+Route::resource('tehasil', TehasilController::class);
+Route::get('tehasil/{tehasilId}/restore', [TehasilController::class, 'restore']);
+Route::get('deleted-tehasil-list', [TehasilController::class, 'deletedTehasilList']);
+
+// Route for addresses
+Route::resource('addresses', AddressController::class);
+Route::get('addresses/{addressId}/restore', [AddressController::class, 'restore']);
+Route::get('deleted-addresses-list', [AddressController::class, 'deletedTehasilList']);
