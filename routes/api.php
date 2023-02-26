@@ -7,6 +7,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MediumController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\ShopsController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\SubCategoriesController;
 use App\Http\Controllers\TehasilController;
@@ -81,3 +82,8 @@ Route::get('deleted-tehasil-list', [TehasilController::class, 'deletedTehasilLis
 Route::resource('addresses', AddressController::class);
 Route::get('addresses/{addressId}/restore', [AddressController::class, 'restore']);
 Route::get('deleted-addresses-list', [AddressController::class, 'deletedTehasilList']);
+
+// Route for shop
+Route::resource('shops', ShopsController::class);
+Route::get('shops/{shopId}/restore', [ShopsController::class, 'restore']);
+Route::get('deleted-shops-list', [ShopsController::class, 'deletedShopsList']);

@@ -20,7 +20,7 @@ class DistrictFactory extends Factory
         return [
             'name' => fake()->name(),
             'state_id' => function (){
-                return State::factory()->create()->id;
+                return State::all()->random()->id;
             }
         ];
     }
