@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('contact_number');
             $table->boolean('open_24');
-            $table->string('open_time');
-            $table->string('close_time');
-            $table->string('visit_count');
+            $table->string('open_time')->nullable();
+            $table->string('close_time')->nullable();
+            $table->string('visit_count')->default(0);
+            
             // for address id
             $table->unsignedInteger('address_id')->default(0);
             $table->foreign('address_id')->references('id')->on('addresses')
@@ -33,11 +34,10 @@ return new class extends Migration
             $table->unsignedInteger('category_id')->default(0);
             $table->foreign('category_id')->references('id')->on('categories')
                                         ->onDelete('cascade')->onUpdate('cascade');
-            // for subcategory
-            $table->unsignedInteger('sub_category_id')->default(0);
-            $table->foreign('sub_category_id')->references('id')->on('sub_categories')
-                                        ->onDelete('cascade')->onUpdate('cascade');
-            
+            //for user 
+            $table->unsignedInteger('user_id')->default(0);
+            $table->foreign('user_id')->references('id')->on('users')
+                                          ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -38,7 +38,7 @@ class StateController extends Controller
         if ($state) {
             return response()->json(
                 [
-                    "state_data" => $state,
+                    "data" => $state,
                     "success" => true
                 ],
                 200
