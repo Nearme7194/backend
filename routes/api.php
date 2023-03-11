@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MediumController;
@@ -57,3 +58,19 @@ Route::get('deleted-states-list', [StateController::class, 'deletedStateList']);
 Route::resource('locations', LocationController::class);
 Route::get('/locations/{locationId}/restore', [LocationController::class, 'restore']);
 Route::get('deleted-location-list', [LocationController::class, 'deletedLocationList']);
+
+//authentication route
+Route::post('login',[AuthController::class,'login']);
+Route::group([
+
+    'middleware' => 'api',
+    'namespace' => 'App\Http\Controllers',
+    'prefix' => 'auth'
+
+], function ($router) {
+    
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});
